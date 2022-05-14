@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            {{name}}
-        </title>
-   
-    </head>
-    <body>
-        {{name}}
-    </body>
-</html>
+{% extends "UCLAwiki/layout.html" %}
+
+{% block display %}
+<div class="d-flex flex-column">
+    <a href="{% url 'editentry' entryname %}" method="post">Edit this page</a>
+    {% autoescape off %}
+        {{results}}
+    {% endautoescape %}
+</div>
+{% endblock %}

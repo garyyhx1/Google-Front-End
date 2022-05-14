@@ -1,0 +1,15 @@
+{% extends "UCLAwiki/layout.html" %}
+
+{% block display %}
+<div>
+<h2>Enter a new entry:</h2>
+<form action="{% url 'saveentry'%}" method="post">
+    {% csrf_token %}
+    <h4>Title:</h4>
+    <input type="text" name="title">
+    <h4>Content:</h4>
+    <input type="text" name="content">
+    <input type="submit" value="Save">
+</form>
+</div>
+{% endblock %}

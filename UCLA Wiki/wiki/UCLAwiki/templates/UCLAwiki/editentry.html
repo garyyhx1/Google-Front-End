@@ -1,0 +1,16 @@
+{% extends "UCLAwiki/layout.html" %}
+
+{% block display %}
+<div class="d-flex flex-column">
+    <h2>Make edits here:</h2>
+    <form action="{% url 'saveedit' %}" method="post">
+        {% csrf_token %}
+        <h4>Entry title:</h4>
+        <h5>{{existingentryname}}</h5>
+        <h4>Edit entry content:</h4>
+        <textarea class="form-control" rows="10" name="content">{{existingentry}}</textarea>
+        <input type="hidden" name="title" value="{{existingentryname}}">
+        <input type="submit" value="Save">
+    </form>
+</div>
+{% endblock %}
